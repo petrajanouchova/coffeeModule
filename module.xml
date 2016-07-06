@@ -1,0 +1,76 @@
+<?xml version="1.0" ?>
+<module suppressWarnings="true">
+
+<User f="nodata">
+  <User>
+    <Select_User t="dropdown" f="user"/>
+    <Login t="button" l="Control"/>
+  </User>
+</User>
+
+<Control f="nodata">
+  <Main>
+    <New_Cafe t="button" l="Cafe"/>
+    <autonum/>
+    <GPS_Diagnostics t="gpsdiag"/>
+  </Main>
+  <search>
+    Search Records
+  </search>
+</Control>
+
+<Cafe>
+  <Location>
+    <Cafe_ID f="id notnull autonum" t="input">
+      <desc>Cafe's unique ID"</desc>
+    </Cafe_ID>
+    <Cafe_Name f="notnull">
+      <desc>Enter Cafe's name.</desc>
+    </Cafe_Name>
+    <Street f="notnull">
+      <desc>Enter Street name and the number, e.g. 293 Clarence Street.</desc>
+    </Street>
+    <Suburb f="id">
+      <desc>Enter Suburb name.</desc>
+    </Suburb>
+    <City f="id">
+      <desc>Enter name of the City.</desc>
+    </City>
+    <State f="id">
+      <desc>Enter name of the State.</desc>
+    </State>
+    <Postal_Code f="id">
+      <desc>Enter Postal Code, if known.</desc>
+    </Postal_Code>
+    <gps/>
+    <Cafe_Photo t="camera"/>
+   </Location>
+   <Facilities>
+   	<Coffee_Beans f="id">
+   		<desc>Type of coffee beans used, their description, etc.</desc>
+    </Coffee_Beans>
+    <Coffee_Brewing_Methods t="checkbox">
+    	<desc>"Type of brewing methods available in the Cafe (source: Wikipedia)</desc>
+		<opts>
+			<opt>Aeropress <desc> The AeroPress is a mechanical, non-electronic device where pressure is simply exerted by the user manually pressing a piston down with their hand, forcing medium-temperature water through coffee grounds in about 30 seconds (into a single cup.) This method produces a smoother beverage than espresso, falling somewhere between the flavor of a moka pot and a French Press.</desc></opt>
+			<opt>Cold Brew <desc> Cold brew coffee, sometimes known as ""cold press."" Cold water is poured over coffee grounds and allowed to steep for eight to twenty-four hours. The coffee is then filtered, usually through a very thick filter, removing all particles. This process produces a very strong concentrate which can be stored in a refrigerated, airtight container for up to eight weeks. The coffee prepared by this method is very low in acidity with a smooth taste, and is often preferred by those with sensitive stomachs. Others, however, feel this method strips coffee of its bold flavor and character. </desc></opt>
+			<opt>Drip <desc> Drip brewing, filtered coffee, or pour-over is a method which involves pouring water over roasted, ground coffee beans contained in a filter, creating the beverage called coffee. Water seeps through the ground coffee, absorbing its oils and essences, solely under gravity, then passes through the bottom of the filter. The used coffee grounds are retained in the filter with the liquid falling (dripping) into a collecting vessel such as a carafe or pot.</desc></opt>
+			<opt>Espresso <desc> Espresso is coffee brewed by forcing a small amount of nearly boiling water under pressure through finely ground coffee beans. Espresso is generally thicker than coffee brewed by other methods, has a higher concentration of suspended and dissolved solids, and has crema on top (a foam with a creamy consistency). As a result of the pressurized brewing process, the flavors and chemicals in a typical cup of espresso are very concentrated. Espresso is also the base for other drinks such as a caffè latte, cappuccino, caffè macchiato, caffè mocha, flat white, or caffè Americano. Espresso has more caffeine per unit volume than most coffee beverages, but because the usual serving size is much smaller, the total caffeine content is less than a mug of standard brewed coffee, contrary to a common belief.</desc></opt>
+			<opt>French Press <desc> The French press goes by various names around the world. In Italy the press is known as a caffettiera a stantuffo. A French press requires coffee of a coarser grind than does a drip brew coffee filter, as finer grounds, when immersed in water, have lower permeability than coarser grounds, requiring an excessive and potentially dangerous amount of force to be applied by hand to lower the plunger. It is widely believed that the optimum time for brewing the coffee is around 4 minutes. Others consider the coffee spoiled after about 20 minutes.[3] Other approaches, such as cold-brewing, require several hours of contact between the water and the grounds to achieve the desired extraction.</desc></opt>
+			<opt>Moka Pot <desc> The moka pot, also known as the ""Italian coffeepot"" or the ""caffettiera,"" is a three-chamber design which boils water in the lower section. The generated steam pressure, about one bar (100 kPa, 14.5 psi), forces the boiling water up through coffee grounds held in the middle section, separated by a filter mesh from the top section. The resultant coffee (almost espresso strength, but without the crema) is collected in the top section. Moka pots usually sit directly on a stovetop heater or burner. Some models have a transparent glass or plastic top.</desc></opt>
+			<opt>Turkish Coffee <desc> Turkish coffee is served in very small cups about the size of those used for espresso. The crema or ""face"" is considered crucial, and since it requires some skill to achieve its presence is taken as evidence of a well-made brew. It is usually made sweet, with sugar added after the brew process begins, and often is flavored with cardamom or other spices.</desc></opt>
+			<opt>Vacuum Pot <desc> A vacuum coffee maker brews coffee using two chambers where vapor pressure and vacuum produce coffee. A vacuum coffee maker operates as a siphon, where heating and cooling the lower vessel changes the vapor pressure of water in the lower, first pushing the water up into the upper vessel, then allowing the water to fall back down into the lower vessel. Concretely, the principle of a vacuum coffee maker is to heat water in the lower vessel of the brewer until expansion forces the contents through a narrow tube into an upper vessel containing coffee grounds (as water temperature increases, dense liquid water increasingly converts to less dense water vapor gas, which takes up more space and thus increases pressure); when the water reaches and exceeds the boiling point (so the vapor pressure equals and then exceeds atmospheric pressure), the (water vapor) pressure in the lower vessel exceeds the (atmospheric) pressure in the top vessel and water is pushed up the siphon tube into the upper vessel."</desc></opt>
+			<opt>Other</opt>
+		</opts>
+	</Coffee_Brewing_Methods>
+   </Facilities>
+</Cafe>
+
+<Review>
+	<Review_ID f="id notnull autonum">
+      <desc>Review's unique ID, autoincremented by 1</desc>
+    </Review_ID>
+    <timestamp/>
+</Review>
+
+</module>
