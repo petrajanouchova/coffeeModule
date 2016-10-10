@@ -635,12 +635,12 @@
                 <pos>1</pos>
               </str>
             </Review_ID>
-            <Cafe_Name f="id notnull">
+            <Cafe_Name_Review f="id notnull">
                 <str>
                     <fmt>of $2 </fmt>
                     <pos>2</pos>
                 </str>
-            </Cafe_Name>
+            </Cafe_Name_Review>
         </cols>
         <cols>
             <author f="id">
