@@ -202,7 +202,7 @@
         </Facilities_Description>
     </Facilities>
     <Contact>
-        <Open_Weekday b="time">
+    	<Open_Weekday b="time">
                 <desc>When the Cafe opens during the Weekday</desc>
         </Open_Weekday>
         <Close_Weekday b="time">
@@ -305,8 +305,8 @@
                     <opt>Other</opt>
                 </opts>
             </Coffee_Type>
-            <Coffee_Expresso t="checkbox">
-            Ordered Type of Espresso based Coffee
+            <Coffee_Espresso t="checkbox">
+            		Ordered Type of Espresso based Coffee
                 <desc>Choose the type of coffee you have ordered.</desc>.
                 <opts>
                     <opt>Americano</opt>
@@ -320,7 +320,7 @@
                     <opt>Mocha</opt>
                     <opt>Other</opt>
                 </opts>
-            </Coffee_Expresso>
+            </Coffee_Espresso>
         </cols>
         <Milk_Quality t="radio">
             <desc>Quality of milk used (if applicable).</desc>.
