@@ -53,7 +53,7 @@
               </str>
             </Street>
             <Suburb f="id">
-                 <desc>Enter Suburb name.</desc>
+                 <desc>Enter Suburb name, if known.</desc>
                  <str>
                     <fmt>$2, </fmt>
                     <pos>4</pos>
@@ -79,8 +79,8 @@
         <Take_Representative_Photo_of_the_Cafe t="camera"/>
     </Location>
     <Customer_Review>
-        <Add_Review t="button" l="Review"/>
-        <Existing_Reviews t="dropdown" e="Review"/>
+        <Add_Review t="button" lc="Review"/>
+        <Existing_Reviews t="dropdown" ec="Review"/>
     </Customer_Review>
     <Facilities>
         <Coffee_Beans>
@@ -117,7 +117,7 @@
                     <opt>Cappuccino 
                         <desc>Cappuccino comprises equal parts of espresso coffee and milk and froth, sometimes sprinkled with cinnamon or powdered cocoa.</desc></opt>
                     <opt>Espresso 
-                        <desc>Espresso is made by forcing hot water at 91–95 °C under a pressure of between eight and eighteen bars, through a lightly packed matrix, called a "puck," of finely ground coffee. The 30–60 cc beverage is served in demitasse cups; sugar is often added. It is one of the most concentrated forms of coffee regularly consumed, with a distinctive flavor provided by crema, a layer of flavorful emulsified oils in the form of a colloidal foam floating on the surface, which is produced by the high pressure.</desc></opt>
+                        <desc>Espresso is made by forcing hot water at 91–95 °C under a pressure of between eight and eighteen bars, through a lightly packed matrix, called a "puck" of finely ground coffee. The 30–60 cc beverage is served in demitasse cups; sugar is often added. It is one of the most concentrated forms of coffee regularly consumed, with a distinctive flavor provided by crema, a layer of flavorful emulsified oils in the form of a colloidal foam floating on the surface, which is produced by the high pressure.</desc></opt>
                     <opt>Flat White 
                         <desc>Flat white is one part espresso with two parts steamed milk, usually served in a cappuccino cup with the foam decorated with a motif (e.g., fern or heart). This is a speciality of Australia and New Zealand.</desc></opt>
                     <opt>Frappe 
@@ -188,7 +188,7 @@
                     <opt>More than 20</opt>
                 </opts>
             </Number_of_Seats>
-            <Payment_Method t="dropdown">
+            <Payment_Method t="checkbox">
                 <desc>Number of seats available for customers.</desc>
                 <opts>
                     <opt>Cash</opt>
@@ -202,402 +202,24 @@
         </Facilities_Description>
     </Facilities>
     <Contact>
-        <Business_Hours_Weekday t="dropdown">
-            <desc>When the Cafe operates during the Weekday.</desc>.
-            <opts>
-                <opt>Opens Before 6AM
-                    <opt>Closes at 1PM</opt>
-                    <opt>Closes at 2PM</opt>
-                    <opt>Closes at 3PM</opt>
-                    <opt>Closes at 4PM</opt>
-                    <opt>Closes at 5PM</opt>
-                    <opt>Closes at 6PM</opt>
-                    <opt>Closes at 7PM</opt>
-                    <opt>Closes at 8PM</opt>
-                    <opt>Closes after 8PM</opt>
-                </opt>
-                    <opt>Opens at 6AM
-                    <opt>Closes at 1PM</opt>
-                    <opt>Closes at 2PM</opt>
-                    <opt>Closes at 3PM</opt>
-                    <opt>Closes at 4PM</opt>
-                    <opt>Closes at 5PM</opt>
-                    <opt>Closes at 6PM</opt>
-                    <opt>Closes at 7PM</opt>
-                    <opt>Closes at 8PM</opt>
-                    <opt>Closes after 8PM</opt>
-                </opt>
-                    <opt>Opens at 7AM
-                    <opt>Closes at 1PM</opt>
-                    <opt>Closes at 2PM</opt>
-                    <opt>Closes at 3PM</opt>
-                    <opt>Closes at 4PM</opt>
-                    <opt>Closes at 5PM</opt>
-                    <opt>Closes at 6PM</opt>
-                    <opt>Closes at 7PM</opt>
-                    <opt>Closes at 8PM</opt>
-                    <opt>Closes after 8PM</opt>
-                </opt>
-                    <opt>Opens at 8AM
-                    <opt>Closes at 1PM</opt>
-                    <opt>Closes at 2PM</opt>
-                    <opt>Closes at 3PM</opt>
-                    <opt>Closes at 4PM</opt>
-                    <opt>Closes at 5PM</opt>
-                    <opt>Closes at 6PM</opt>
-                    <opt>Closes at 7PM</opt>
-                    <opt>Closes at 8PM</opt>
-                    <opt>Closes after 8PM</opt>
-                </opt>
-                    <opt>Opens at 9AM
-                    <opt>Closes at 1PM</opt>
-                    <opt>Closes at 2PM</opt>
-                    <opt>Closes at 3PM</opt>
-                    <opt>Closes at 4PM</opt>
-                    <opt>Closes at 5PM</opt>
-                    <opt>Closes at 6PM</opt>
-                    <opt>Closes at 7PM</opt>
-                    <opt>Closes at 8PM</opt>
-                    <opt>Closes after 8PM</opt>
-                </opt>
-                    <opt>Opens at 10AM
-                    <opt>Closes at 1PM</opt>
-                    <opt>Closes at 2PM</opt>
-                    <opt>Closes at 3PM</opt>
-                    <opt>Closes at 4PM</opt>
-                    <opt>Closes at 5PM</opt>
-                    <opt>Closes at 6PM</opt>
-                    <opt>Closes at 7PM</opt>
-                    <opt>Closes at 8PM</opt>
-                    <opt>Closes after 8PM</opt>
-                </opt>
-                    <opt>Opens at 11AM
-                    <opt>Closes at 1PM</opt>
-                    <opt>Closes at 2PM</opt>
-                    <opt>Closes at 3PM</opt>
-                    <opt>Closes at 4PM</opt>
-                    <opt>Closes at 5PM</opt>
-                    <opt>Closes at 6PM</opt>
-                    <opt>Closes at 7PM</opt>
-                    <opt>Closes at 8PM</opt>
-                    <opt>Closes after 8PM</opt>
-                </opt>
-                    <opt>Opens at 12PM
-                    <opt>Closes at 1PM</opt>
-                    <opt>Closes at 2PM</opt>
-                    <opt>Closes at 3PM</opt>
-                    <opt>Closes at 4PM</opt>
-                    <opt>Closes at 5PM</opt>
-                    <opt>Closes at 6PM</opt>
-                    <opt>Closes at 7PM</opt>
-                    <opt>Closes at 8PM</opt>
-                    <opt>Closes after 8PM</opt>
-                </opt>
-                    <opt>Open 24 hours
-                    <opt>Never closes</opt>
-                </opt>
-                    <opt>Closed
-                    <opt>Does not open</opt>
-                </opt>
-            </opts>
-        </Business_Hours_Weekday>
-        <Business_Hours_Saturday t="dropdown">
-            <desc>When the Cafe operates on Saturdays.</desc>.
-            <opts>
-                <opt>Opens Before 6AM
-                    <opt>Closes at 1PM</opt>
-                    <opt>Closes at 2PM</opt>
-                    <opt>Closes at 3PM</opt>
-                    <opt>Closes at 4PM</opt>
-                    <opt>Closes at 5PM</opt>
-                    <opt>Closes at 6PM</opt>
-                    <opt>Closes at 7PM</opt>
-                    <opt>Closes at 8PM</opt>
-                    <opt>Closes after 8PM</opt>
-                </opt>
-                    <opt>Opens at 6AM
-                    <opt>Closes at 1PM</opt>
-                    <opt>Closes at 2PM</opt>
-                    <opt>Closes at 3PM</opt>
-                    <opt>Closes at 4PM</opt>
-                    <opt>Closes at 5PM</opt>
-                    <opt>Closes at 6PM</opt>
-                    <opt>Closes at 7PM</opt>
-                    <opt>Closes at 8PM</opt>
-                    <opt>Closes after 8PM</opt>
-                </opt>
-                    <opt>Opens at 7AM
-                    <opt>Closes at 1PM</opt>
-                    <opt>Closes at 2PM</opt>
-                    <opt>Closes at 3PM</opt>
-                    <opt>Closes at 4PM</opt>
-                    <opt>Closes at 5PM</opt>
-                    <opt>Closes at 6PM</opt>
-                    <opt>Closes at 7PM</opt>
-                    <opt>Closes at 8PM</opt>
-                    <opt>Closes after 8PM</opt>
-                </opt>
-                    <opt>Opens at 8AM
-                    <opt>Closes at 1PM</opt>
-                    <opt>Closes at 2PM</opt>
-                    <opt>Closes at 3PM</opt>
-                    <opt>Closes at 4PM</opt>
-                    <opt>Closes at 5PM</opt>
-                    <opt>Closes at 6PM</opt>
-                    <opt>Closes at 7PM</opt>
-                    <opt>Closes at 8PM</opt>
-                    <opt>Closes after 8PM</opt>
-                </opt>
-                    <opt>Opens at 9AM
-                    <opt>Closes at 1PM</opt>
-                    <opt>Closes at 2PM</opt>
-                    <opt>Closes at 3PM</opt>
-                    <opt>Closes at 4PM</opt>
-                    <opt>Closes at 5PM</opt>
-                    <opt>Closes at 6PM</opt>
-                    <opt>Closes at 7PM</opt>
-                    <opt>Closes at 8PM</opt>
-                    <opt>Closes after 8PM</opt>
-                </opt>
-                    <opt>Opens at 10AM
-                    <opt>Closes at 1PM</opt>
-                    <opt>Closes at 2PM</opt>
-                    <opt>Closes at 3PM</opt>
-                    <opt>Closes at 4PM</opt>
-                    <opt>Closes at 5PM</opt>
-                    <opt>Closes at 6PM</opt>
-                    <opt>Closes at 7PM</opt>
-                    <opt>Closes at 8PM</opt>
-                    <opt>Closes after 8PM</opt>
-                </opt>
-                    <opt>Opens at 11AM
-                    <opt>Closes at 1PM</opt>
-                    <opt>Closes at 2PM</opt>
-                    <opt>Closes at 3PM</opt>
-                    <opt>Closes at 4PM</opt>
-                    <opt>Closes at 5PM</opt>
-                    <opt>Closes at 6PM</opt>
-                    <opt>Closes at 7PM</opt>
-                    <opt>Closes at 8PM</opt>
-                    <opt>Closes after 8PM</opt>
-                </opt>
-                    <opt>Opens at 12PM
-                    <opt>Closes at 1PM</opt>
-                    <opt>Closes at 2PM</opt>
-                    <opt>Closes at 3PM</opt>
-                    <opt>Closes at 4PM</opt>
-                    <opt>Closes at 5PM</opt>
-                    <opt>Closes at 6PM</opt>
-                    <opt>Closes at 7PM</opt>
-                    <opt>Closes at 8PM</opt>
-                    <opt>Closes after 8PM</opt>
-                </opt>
-                    <opt>Open 24 hours
-                    <opt>Never closes</opt>
-                </opt>
-                    <opt>Closed
-                    <opt>Does not open</opt>
-                </opt>
-            </opts>
-        </Business_Hours_Saturday>
-        <Business_Hours_Sunday t="dropdown">
-            <desc>When the Cafe operates on Sundays.</desc>.
-            <opts>
-                <opt>Opens Before 6AM
-                    <opt>Closes at 1PM</opt>
-                    <opt>Closes at 2PM</opt>
-                    <opt>Closes at 3PM</opt>
-                    <opt>Closes at 4PM</opt>
-                    <opt>Closes at 5PM</opt>
-                    <opt>Closes at 6PM</opt>
-                    <opt>Closes at 7PM</opt>
-                    <opt>Closes at 8PM</opt>
-                    <opt>Closes after 8PM</opt>
-                </opt>
-                    <opt>Opens at 6AM
-                    <opt>Closes at 1PM</opt>
-                    <opt>Closes at 2PM</opt>
-                    <opt>Closes at 3PM</opt>
-                    <opt>Closes at 4PM</opt>
-                    <opt>Closes at 5PM</opt>
-                    <opt>Closes at 6PM</opt>
-                    <opt>Closes at 7PM</opt>
-                    <opt>Closes at 8PM</opt>
-                    <opt>Closes after 8PM</opt>
-                </opt>
-                    <opt>Opens at 7AM
-                    <opt>Closes at 1PM</opt>
-                    <opt>Closes at 2PM</opt>
-                    <opt>Closes at 3PM</opt>
-                    <opt>Closes at 4PM</opt>
-                    <opt>Closes at 5PM</opt>
-                    <opt>Closes at 6PM</opt>
-                    <opt>Closes at 7PM</opt>
-                    <opt>Closes at 8PM</opt>
-                    <opt>Closes after 8PM</opt>
-                </opt>
-                    <opt>Opens at 8AM
-                    <opt>Closes at 1PM</opt>
-                    <opt>Closes at 2PM</opt>
-                    <opt>Closes at 3PM</opt>
-                    <opt>Closes at 4PM</opt>
-                    <opt>Closes at 5PM</opt>
-                    <opt>Closes at 6PM</opt>
-                    <opt>Closes at 7PM</opt>
-                    <opt>Closes at 8PM</opt>
-                    <opt>Closes after 8PM</opt>
-                </opt>
-                    <opt>Opens at 9AM
-                    <opt>Closes at 1PM</opt>
-                    <opt>Closes at 2PM</opt>
-                    <opt>Closes at 3PM</opt>
-                    <opt>Closes at 4PM</opt>
-                    <opt>Closes at 5PM</opt>
-                    <opt>Closes at 6PM</opt>
-                    <opt>Closes at 7PM</opt>
-                    <opt>Closes at 8PM</opt>
-                    <opt>Closes after 8PM</opt>
-                </opt>
-                    <opt>Opens at 10AM
-                    <opt>Closes at 1PM</opt>
-                    <opt>Closes at 2PM</opt>
-                    <opt>Closes at 3PM</opt>
-                    <opt>Closes at 4PM</opt>
-                    <opt>Closes at 5PM</opt>
-                    <opt>Closes at 6PM</opt>
-                    <opt>Closes at 7PM</opt>
-                    <opt>Closes at 8PM</opt>
-                    <opt>Closes after 8PM</opt>
-                </opt>
-                    <opt>Opens at 11AM
-                    <opt>Closes at 1PM</opt>
-                    <opt>Closes at 2PM</opt>
-                    <opt>Closes at 3PM</opt>
-                    <opt>Closes at 4PM</opt>
-                    <opt>Closes at 5PM</opt>
-                    <opt>Closes at 6PM</opt>
-                    <opt>Closes at 7PM</opt>
-                    <opt>Closes at 8PM</opt>
-                    <opt>Closes after 8PM</opt>
-                </opt>
-                    <opt>Opens at 12PM
-                    <opt>Closes at 1PM</opt>
-                    <opt>Closes at 2PM</opt>
-                    <opt>Closes at 3PM</opt>
-                    <opt>Closes at 4PM</opt>
-                    <opt>Closes at 5PM</opt>
-                    <opt>Closes at 6PM</opt>
-                    <opt>Closes at 7PM</opt>
-                    <opt>Closes at 8PM</opt>
-                    <opt>Closes after 8PM</opt>
-                </opt>
-                    <opt>Open 24 hours
-                    <opt>Never closes</opt>
-                </opt>
-                    <opt>Closed
-                    <opt>Does not open</opt>
-                </opt>
-            </opts>
-        </Business_Hours_Sunday>
-           <Business_Hours_Public_Holidays t="dropdown">
-            <desc>When the Cafe operates on Public Holidays.</desc>.
-            <opts>
-                <opt>Opens Before 6AM
-                    <opt>Closes at 1PM</opt>
-                    <opt>Closes at 2PM</opt>
-                    <opt>Closes at 3PM</opt>
-                    <opt>Closes at 4PM</opt>
-                    <opt>Closes at 5PM</opt>
-                    <opt>Closes at 6PM</opt>
-                    <opt>Closes at 7PM</opt>
-                    <opt>Closes at 8PM</opt>
-                    <opt>Closes after 8PM</opt>
-                </opt>
-                    <opt>Opens at 6AM
-                    <opt>Closes at 1PM</opt>
-                    <opt>Closes at 2PM</opt>
-                    <opt>Closes at 3PM</opt>
-                    <opt>Closes at 4PM</opt>
-                    <opt>Closes at 5PM</opt>
-                    <opt>Closes at 6PM</opt>
-                    <opt>Closes at 7PM</opt>
-                    <opt>Closes at 8PM</opt>
-                    <opt>Closes after 8PM</opt>
-                </opt>
-                    <opt>Opens at 7AM
-                    <opt>Closes at 1PM</opt>
-                    <opt>Closes at 2PM</opt>
-                    <opt>Closes at 3PM</opt>
-                    <opt>Closes at 4PM</opt>
-                    <opt>Closes at 5PM</opt>
-                    <opt>Closes at 6PM</opt>
-                    <opt>Closes at 7PM</opt>
-                    <opt>Closes at 8PM</opt>
-                    <opt>Closes after 8PM</opt>
-                </opt>
-                    <opt>Opens at 8AM
-                    <opt>Closes at 1PM</opt>
-                    <opt>Closes at 2PM</opt>
-                    <opt>Closes at 3PM</opt>
-                    <opt>Closes at 4PM</opt>
-                    <opt>Closes at 5PM</opt>
-                    <opt>Closes at 6PM</opt>
-                    <opt>Closes at 7PM</opt>
-                    <opt>Closes at 8PM</opt>
-                    <opt>Closes after 8PM</opt>
-                </opt>
-                    <opt>Opens at 9AM
-                    <opt>Closes at 1PM</opt>
-                    <opt>Closes at 2PM</opt>
-                    <opt>Closes at 3PM</opt>
-                    <opt>Closes at 4PM</opt>
-                    <opt>Closes at 5PM</opt>
-                    <opt>Closes at 6PM</opt>
-                    <opt>Closes at 7PM</opt>
-                    <opt>Closes at 8PM</opt>
-                    <opt>Closes after 8PM</opt>
-                </opt>
-                    <opt>Opens at 10AM
-                    <opt>Closes at 1PM</opt>
-                    <opt>Closes at 2PM</opt>
-                    <opt>Closes at 3PM</opt>
-                    <opt>Closes at 4PM</opt>
-                    <opt>Closes at 5PM</opt>
-                    <opt>Closes at 6PM</opt>
-                    <opt>Closes at 7PM</opt>
-                    <opt>Closes at 8PM</opt>
-                    <opt>Closes after 8PM</opt>
-                </opt>
-                    <opt>Opens at 11AM
-                    <opt>Closes at 1PM</opt>
-                    <opt>Closes at 2PM</opt>
-                    <opt>Closes at 3PM</opt>
-                    <opt>Closes at 4PM</opt>
-                    <opt>Closes at 5PM</opt>
-                    <opt>Closes at 6PM</opt>
-                    <opt>Closes at 7PM</opt>
-                    <opt>Closes at 8PM</opt>
-                    <opt>Closes after 8PM</opt>
-                </opt>
-                    <opt>Opens at 12PM
-                    <opt>Closes at 1PM</opt>
-                    <opt>Closes at 2PM</opt>
-                    <opt>Closes at 3PM</opt>
-                    <opt>Closes at 4PM</opt>
-                    <opt>Closes at 5PM</opt>
-                    <opt>Closes at 6PM</opt>
-                    <opt>Closes at 7PM</opt>
-                    <opt>Closes at 8PM</opt>
-                    <opt>Closes after 8PM</opt>
-                </opt>
-                    <opt>Open 24 hours
-                    <opt>Never closes</opt>
-                </opt>
-                    <opt>Closed
-                    <opt>Does not open</opt>
-                </opt>
-            </opts>
-        </Business_Hours_Public_Holidays>
+        <Open_Weekday b="time">
+                <desc>When the Cafe opens during the Weekday</desc>
+        </Open_Weekday>
+        <Close_Weekday b="time">
+                <desc>When the Cafe closes during the Weekday</desc>
+        </Close_Weekday>
+        <Open_Saturday b="time">
+                <desc>When the Cafe opens on Saturday</desc>
+        </Open_Saturday>
+        <Close_Saturday b="time">
+                <desc>When the Cafe closes on Saturday</desc>
+        </Close_Saturday>
+        <Open_Sunday b="time">
+                <desc>When the Cafe opens on Sunday</desc>
+        </Open_Sunday>
+        <Close_Sunday b="time">
+                <desc>When the Cafe closes on Sunday</desc>
+        </Close_Sunday>
         <cols>
             <Web>
                 <desc>Cafe's website.</desc>
@@ -635,12 +257,12 @@
                 <pos>1</pos>
               </str>
             </Review_ID>
-            <Cafe_Name_Review f="id notnull">
+            <Cafe_Name f="id notnull">
                 <str>
                     <fmt>of $2 </fmt>
                     <pos>2</pos>
                 </str>
-            </Cafe_Name_Review>
+            </Cafe_Name>
         </cols>
         <cols>
             <author f="id">
@@ -668,24 +290,14 @@
                     <opt>Other</opt>
                 </opts>
             </Type_of_Visit>
-            <Coffee_Type t="dropdown">
+            <Coffee_Type t="checkbox">
                 Ordered Type of Coffee
                 <desc>Choose the type of coffee you have ordered.</desc>.
                 <opts>
                     <opt>Aeropress</opt>
                     <opt>Cold Brew</opt>
                     <opt>Drip</opt>
-                    <opt>Espresso
-                        <opt>Americano</opt>
-                        <opt>Cappuccino</opt>
-                        <opt>Espresso</opt>
-                        <opt>Flat White</opt>
-                        <opt>Frappe</opt>
-                        <opt>Latte</opt>
-                        <opt>Latte Macchiato</opt>
-                        <opt>Long Black</opt>
-                        <opt>Mocha</opt>
-                    </opt>
+                    <opt>Espresso based
                     <opt>French Press</opt>
                     <opt>Moka Pot</opt>
                     <opt>Vacuum Pot</opt>
@@ -693,6 +305,22 @@
                     <opt>Other</opt>
                 </opts>
             </Coffee_Type>
+            <Coffee_Expresso t="checkbox">
+            Ordered Type of Espresso based Coffee
+                <desc>Choose the type of coffee you have ordered.</desc>.
+                <opts>
+                    <opt>Americano</opt>
+                    <opt>Cappuccino</opt>
+                    <opt>Espresso</opt>
+                    <opt>Flat White</opt>
+                    <opt>Frappe</opt>
+                    <opt>Latte</opt>
+                    <opt>Latte Macchiato</opt>
+                    <opt>Long Black</opt>
+                    <opt>Mocha</opt>
+                    <opt>Other</opt>
+                </opts>
+            </Coffee_Expresso>
         </cols>
         <Milk_Quality t="radio">
             <desc>Quality of milk used (if applicable).</desc>.
@@ -788,5 +416,12 @@
         <Add_Representative_Review_Photo t="camera"/>
     </Review>
 </Review>
+
+<logic><![CDATA[
+inheritFieldValue(
+    "Cafe/Location/Cafe_Name",
+    "Review/Review/Cafe_Name_Review"
+);
+]]></logic>
 
 </module>
