@@ -2,75 +2,791 @@
 <module suppressWarnings="true">
 
 <User f="nodata">
-  <User>
-    <Select_User t="dropdown" f="user"/>
-    <Login t="button" l="Control"/>
-  </User>
+    <User>
+        <Select_User t="dropdown" f="user"/>
+        <Login t="button" l="Control"/>
+    </User>
 </User>
 
 <Control f="nodata">
-  <Main>
-    <New_Cafe t="button" l="Cafe"/>
-    <autonum/>
-    <GPS_Diagnostics t="gpsdiag"/>
-  </Main>
-  <search>
+    <Main>
+        <New_Cafe t="button" l="Cafe"/>
+        <Existing_Cafes t="dropdown" e="Cafe"/>
+    </Main>
+    <Defaults>
+        <autonum/>
+        <GPS_Diagnostics t="gpsdiag"/>
+    </Defaults>
+    <search>
     Search Records
-  </search>
+    </search>
 </Control>
 
 <Cafe>
-  <Location>
-    <Cafe_ID f="id notnull autonum" t="input">
-      <desc>Cafe's unique ID"</desc>
-    </Cafe_ID>
-    <Cafe_Name f="notnull">
-      <desc>Enter Cafe's name.</desc>
-    </Cafe_Name>
-    <Street f="notnull">
-      <desc>Enter Street name and the number, e.g. 293 Clarence Street.</desc>
-    </Street>
-    <Suburb f="id">
-      <desc>Enter Suburb name.</desc>
-    </Suburb>
-    <City f="id">
-      <desc>Enter name of the City.</desc>
-    </City>
-    <State f="id">
-      <desc>Enter name of the State.</desc>
-    </State>
-    <Postal_Code f="id">
-      <desc>Enter Postal Code, if known.</desc>
-    </Postal_Code>
-    <gps/>
-    <Cafe_Photo t="camera"/>
-   </Location>
-   <Facilities>
-   	<Coffee_Beans f="id">
-   		<desc>Type of coffee beans used, their description, etc.</desc>
-    </Coffee_Beans>
-    <Coffee_Brewing_Methods t="checkbox">
-    	<desc>"Type of brewing methods available in the Cafe (source: Wikipedia)</desc>
-		<opts>
-			<opt>Aeropress <desc> The AeroPress is a mechanical, non-electronic device where pressure is simply exerted by the user manually pressing a piston down with their hand, forcing medium-temperature water through coffee grounds in about 30 seconds (into a single cup.) This method produces a smoother beverage than espresso, falling somewhere between the flavor of a moka pot and a French Press.</desc></opt>
-			<opt>Cold Brew <desc> Cold brew coffee, sometimes known as ""cold press."" Cold water is poured over coffee grounds and allowed to steep for eight to twenty-four hours. The coffee is then filtered, usually through a very thick filter, removing all particles. This process produces a very strong concentrate which can be stored in a refrigerated, airtight container for up to eight weeks. The coffee prepared by this method is very low in acidity with a smooth taste, and is often preferred by those with sensitive stomachs. Others, however, feel this method strips coffee of its bold flavor and character. </desc></opt>
-			<opt>Drip <desc> Drip brewing, filtered coffee, or pour-over is a method which involves pouring water over roasted, ground coffee beans contained in a filter, creating the beverage called coffee. Water seeps through the ground coffee, absorbing its oils and essences, solely under gravity, then passes through the bottom of the filter. The used coffee grounds are retained in the filter with the liquid falling (dripping) into a collecting vessel such as a carafe or pot.</desc></opt>
-			<opt>Espresso <desc> Espresso is coffee brewed by forcing a small amount of nearly boiling water under pressure through finely ground coffee beans. Espresso is generally thicker than coffee brewed by other methods, has a higher concentration of suspended and dissolved solids, and has crema on top (a foam with a creamy consistency). As a result of the pressurized brewing process, the flavors and chemicals in a typical cup of espresso are very concentrated. Espresso is also the base for other drinks such as a caffè latte, cappuccino, caffè macchiato, caffè mocha, flat white, or caffè Americano. Espresso has more caffeine per unit volume than most coffee beverages, but because the usual serving size is much smaller, the total caffeine content is less than a mug of standard brewed coffee, contrary to a common belief.</desc></opt>
-			<opt>French Press <desc> The French press goes by various names around the world. In Italy the press is known as a caffettiera a stantuffo. A French press requires coffee of a coarser grind than does a drip brew coffee filter, as finer grounds, when immersed in water, have lower permeability than coarser grounds, requiring an excessive and potentially dangerous amount of force to be applied by hand to lower the plunger. It is widely believed that the optimum time for brewing the coffee is around 4 minutes. Others consider the coffee spoiled after about 20 minutes.[3] Other approaches, such as cold-brewing, require several hours of contact between the water and the grounds to achieve the desired extraction.</desc></opt>
-			<opt>Moka Pot <desc> The moka pot, also known as the ""Italian coffeepot"" or the ""caffettiera,"" is a three-chamber design which boils water in the lower section. The generated steam pressure, about one bar (100 kPa, 14.5 psi), forces the boiling water up through coffee grounds held in the middle section, separated by a filter mesh from the top section. The resultant coffee (almost espresso strength, but without the crema) is collected in the top section. Moka pots usually sit directly on a stovetop heater or burner. Some models have a transparent glass or plastic top.</desc></opt>
-			<opt>Turkish Coffee <desc> Turkish coffee is served in very small cups about the size of those used for espresso. The crema or ""face"" is considered crucial, and since it requires some skill to achieve its presence is taken as evidence of a well-made brew. It is usually made sweet, with sugar added after the brew process begins, and often is flavored with cardamom or other spices.</desc></opt>
-			<opt>Vacuum Pot <desc> A vacuum coffee maker brews coffee using two chambers where vapor pressure and vacuum produce coffee. A vacuum coffee maker operates as a siphon, where heating and cooling the lower vessel changes the vapor pressure of water in the lower, first pushing the water up into the upper vessel, then allowing the water to fall back down into the lower vessel. Concretely, the principle of a vacuum coffee maker is to heat water in the lower vessel of the brewer until expansion forces the contents through a narrow tube into an upper vessel containing coffee grounds (as water temperature increases, dense liquid water increasingly converts to less dense water vapor gas, which takes up more space and thus increases pressure); when the water reaches and exceeds the boiling point (so the vapor pressure equals and then exceeds atmospheric pressure), the (water vapor) pressure in the lower vessel exceeds the (atmospheric) pressure in the top vessel and water is pushed up the siphon tube into the upper vessel."</desc></opt>
-			<opt>Other</opt>
-		</opts>
-	</Coffee_Brewing_Methods>
-   </Facilities>
+    <Location>
+        <cols>
+            <author/>
+            <timestamp/>
+        </cols>
+        <cols>
+            <Cafe_ID f="id notnull autonum" t="input">
+                <desc>Cafe's unique ID number, autoincremented by 1</desc>
+                <str>
+                    <fmt>Cafe no. $2: </fmt>
+                    <pos>1</pos>
+                </str>
+            </Cafe_ID>
+            <Cafe_Name f="id notnull">
+                <desc>Enter Cafe's name.</desc>
+                <str>
+                    <fmt>$2 </fmt>
+                    <pos>1</pos>
+              </str>
+            </Cafe_Name>
+        </cols>
+        <cols>
+            <Street f="id notnull">
+                <desc>Enter Street name and the number, e.g. 293 Clarence Street.</desc>
+                <str>
+                    <fmt>at $2, </fmt>
+                    <pos>3</pos>
+              </str>
+            </Street>
+            <Suburb f="id">
+                 <desc>Enter Suburb name.</desc>
+                 <str>
+                    <fmt>$2, </fmt>
+                    <pos>4</pos>
+              </str>
+            </Suburb>
+        </cols>
+        <cols>
+            <City f="id">
+                <desc>Enter name of the City.</desc>
+                <str>
+                    <fmt>$2 </fmt>
+                    <pos>5</pos>
+              </str>
+            </City>
+            <State>
+                <desc>Enter name of the State.</desc>
+            </State>
+            <Postal_Code b="decimal">
+                <desc>Enter Postal Code, if known.</desc>
+            </Postal_Code>
+        </cols>
+        <gps/>
+        <Take_Representative_Photo_of_the_Cafe t="camera"/>
+    </Location>
+    <Customer_Review>
+        <Add_Review t="button" l="Review"/>
+        <Existing_Reviews t="dropdown" e="Review"/>
+    </Customer_Review>
+    <Facilities>
+        <Coffee_Beans>
+            <desc>Type of coffee beans used, their description, etc.</desc>
+        </Coffee_Beans>
+        <cols>
+            <Coffee_Brewing_Methods t="checkbox">
+                <desc>"Type of brewing methods available in the Cafe (source: Wikipedia)</desc>
+                <opts>
+                    <opt>Aeropress 
+                        <desc> The AeroPress is a mechanical, non-electronic device where pressure is simply exerted by the user manually pressing a piston down with their hand, forcing medium-temperature water through coffee grounds in about 30 seconds (into a single cup.) This method produces a smoother beverage than espresso, falling somewhere between the flavor of a moka pot and a French Press.</desc></opt>
+                    <opt>Cold Brew 
+                        <desc> Cold brew coffee, sometimes known as "cold press." Cold water is poured over coffee grounds and allowed to steep for eight to twenty-four hours. The coffee is then filtered, usually through a very thick filter, removing all particles. This process produces a very strong concentrate which can be stored in a refrigerated, airtight container for up to eight weeks. The coffee prepared by this method is very low in acidity with a smooth taste, and is often preferred by those with sensitive stomachs. Others, however, feel this method strips coffee of its bold flavor and character. </desc></opt>
+                    <opt>Drip 
+                        <desc> Drip brewing, filtered coffee, or pour-over is a method which involves pouring water over roasted, ground coffee beans contained in a filter, creating the beverage called coffee. Water seeps through the ground coffee, absorbing its oils and essences, solely under gravity, then passes through the bottom of the filter. The used coffee grounds are retained in the filter with the liquid falling (dripping) into a collecting vessel such as a carafe or pot.</desc></opt>
+                    <opt>Espresso 
+                        <desc> Espresso is coffee brewed by forcing a small amount of nearly boiling water under pressure through finely ground coffee beans. Espresso is generally thicker than coffee brewed by other methods, has a higher concentration of suspended and dissolved solids, and has crema on top (a foam with a creamy consistency). As a result of the pressurized brewing process, the flavors and chemicals in a typical cup of espresso are very concentrated. Espresso is also the base for other drinks such as a caffè latte, cappuccino, caffè macchiato, caffè mocha, flat white, or caffè Americano. Espresso has more caffeine per unit volume than most coffee beverages, but because the usual serving size is much smaller, the total caffeine content is less than a mug of standard brewed coffee, contrary to a common belief.</desc></opt>
+                    <opt>French Press 
+                        <desc> The French press goes by various names around the world. In Italy the press is known as a caffettiera a stantuffo. A French press requires coffee of a coarser grind than does a drip brew coffee filter, as finer grounds, when immersed in water, have lower permeability than coarser grounds, requiring an excessive and potentially dangerous amount of force to be applied by hand to lower the plunger. It is widely believed that the optimum time for brewing the coffee is around 4 minutes. Others consider the coffee spoiled after about 20 minutes. Other approaches, such as cold-brewing, require several hours of contact between the water and the grounds to achieve the desired extraction.</desc></opt>
+                    <opt>Moka Pot 
+                        <desc> The moka pot, also known as the "Italian coffeepot" or the "caffettiera" is a three-chamber design which boils water in the lower section. The generated steam pressure, about one bar (100 kPa, 14.5 psi), forces the boiling water up through coffee grounds held in the middle section, separated by a filter mesh from the top section. The resultant coffee (almost espresso strength, but without the crema) is collected in the top section. Moka pots usually sit directly on a stovetop heater or burner. Some models have a transparent glass or plastic top.</desc></opt>
+                    <opt>Turkish Coffee 
+                        <desc> Turkish coffee is served in very small cups about the size of those used for espresso. The crema or ""face"" is considered crucial, and since it requires some skill to achieve its presence is taken as evidence of a well-made brew. It is usually made sweet, with sugar added after the brew process begins, and often is flavored with cardamom or other spices.</desc></opt>
+                    <opt>Vacuum Pot 
+                        <desc> A vacuum coffee maker brews coffee using two chambers where vapor pressure and vacuum produce coffee. A vacuum coffee maker operates as a siphon, where heating and cooling the lower vessel changes the vapor pressure of water in the lower, first pushing the water up into the upper vessel, then allowing the water to fall back down into the lower vessel. Concretely, the principle of a vacuum coffee maker is to heat water in the lower vessel of the brewer until expansion forces the contents through a narrow tube into an upper vessel containing coffee grounds (as water temperature increases, dense liquid water increasingly converts to less dense water vapor gas, which takes up more space and thus increases pressure); when the water reaches and exceeds the boiling point (so the vapor pressure equals and then exceeds atmospheric pressure), the (water vapor) pressure in the lower vessel exceeds the (atmospheric) pressure in the top vessel and water is pushed up the siphon tube into the upper vessel."</desc></opt>
+                    <opt>Other</opt>
+                </opts>
+            </Coffee_Brewing_Methods>
+            <Espresso_Based_Coffee t="checkbox">
+             <desc>Type of Espresso based coffees available in the Cafe (source: Wikipedia).</desc>
+                <opts>
+                    <opt>Americano 
+                        <desc>Americano style coffee is made with espresso (one or several shots), with hot water then added to give a similar strength (but different flavor) to drip-brewed coffee.</desc></opt>
+                    <opt>Cappuccino 
+                        <desc>Cappuccino comprises equal parts of espresso coffee and milk and froth, sometimes sprinkled with cinnamon or powdered cocoa.</desc></opt>
+                    <opt>Espresso 
+                        <desc>Espresso is made by forcing hot water at 91–95 °C under a pressure of between eight and eighteen bars, through a lightly packed matrix, called a "puck," of finely ground coffee. The 30–60 cc beverage is served in demitasse cups; sugar is often added. It is one of the most concentrated forms of coffee regularly consumed, with a distinctive flavor provided by crema, a layer of flavorful emulsified oils in the form of a colloidal foam floating on the surface, which is produced by the high pressure.</desc></opt>
+                    <opt>Flat White 
+                        <desc>Flat white is one part espresso with two parts steamed milk, usually served in a cappuccino cup with the foam decorated with a motif (e.g., fern or heart). This is a speciality of Australia and New Zealand.</desc></opt>
+                    <opt>Frappe 
+                        <desc>Frappe is is a Greek foam-covered iced coffee drink made from instant coffee (generally, spray-dried). Frappé is in Greece available in three degrees of sweetness, determined by the amount of sugar used. These are: glykós "sweet", 2 teaspoons of coffee and 4 teaspoons of sugar); métrios "medium", 2 teaspoons of coffee and 2 teaspoons of sugar); and a skétos "plain", 2 teaspoons of coffee and no sugar).</desc></opt>
+                    <opt>Caffe Latte 
+                        <desc>Caffè latte or caffè e latte is often called simply latte, which is Italian for ""milk"", in English-speaking countries; it is espresso with steamed milk, traditionally topped with froth created from steaming the milk. A latte comprises one-third espresso and nearly two-thirds steamed milk. More frothed milk makes it weaker than a cappuccino.</desc></opt>
+                    <opt>Latte Macchiato 
+                        <desc>Latte macchiato is the inverse of a caffè macchiato, being a tall glass of steamed milk spotted with a small amount of espresso, sometimes sweetened with sugar or syrup.</desc></opt>
+                    <opt>Long Black 
+                        <desc>Long black is similar to Americano, but prepared in different order (a double shot of espresso is added to water instead of vice versa); most common in Australia and New Zealand.</desc></opt>
+                    <opt>Mocha 
+                        <desc>Mocha is a latte with chocolate added.</desc></opt>
+                    <opt>Other</opt>
+                </opts>
+            </Espresso_Based_Coffee>
+        </cols>
+        <cols>
+            <Food_Availability t="checkbox">
+                <desc> Check all applicable options. Use Annotation if neccessary. </desc>
+                <opts>
+                    <opt>Desserts</opt>
+                    <opt>Sandwiches</opt>
+                    <opt>Salads</opt>
+                    <opt>Hot Meals</opt>
+                    <opt>Other</opt>
+                </opts>
+            </Food_Availability>
+            <Other_Drinks_Availability t="checkbox">
+                <desc> Check all applicable options. Use Annotation if neccessary. </desc>
+                <opts>
+                    <opt>Free Water</opt>
+                    <opt>Soft Drinks</opt>
+                    <opt>Home-made Lemonade</opt>
+                    <opt>Beer</opt>
+                    <opt>Wine</opt>
+                    <opt>Other Alcoholic Drinks</opt>
+                    <opt>Other</opt>
+                </opts>
+            </Other_Drinks_Availability>
+        </cols>
+        <Avaible_Facilities t="checkbox">
+            <desc> Check all applicable options. Use Annotation if neccessary. </desc>
+            <opts>
+                <opt>Toilet</opt>
+                <opt>Non-smoking</opt>
+                <opt>Smoking</opt>
+                <opt>Wifi Available</opt>
+                <opt>Accessible with prams/wheelchairs</opt>
+                <opt>Kids friendly (kids corner)</opt>
+                <opt>Pets friendly (pets allowed)</opt>
+                <opt>Parking</opt>
+                <opt>Seating</opt>
+                <opt>Service (waiter comes to the table)</opt>
+                <opt>Self-service (order at the counter)</opt>
+                <opt>Open 24 hours</opt>
+                <opt>Airconditioner</opt>
+                <opt>Heating</opt>
+                <opt>Other</opt>
+            </opts>
+        </Avaible_Facilities>
+        <cols>
+            <Number_of_Seats t="dropdown">
+                <desc>Number of seats available for customers.</desc>
+                <opts>
+                    <opt>None</opt>
+                    <opt>Less than 5</opt>
+                    <opt>Less than 20</opt>
+                    <opt>More than 20</opt>
+                </opts>
+            </Number_of_Seats>
+            <Payment_Method t="dropdown">
+                <desc>Number of seats available for customers.</desc>
+                <opts>
+                    <opt>Cash</opt>
+                    <opt>Card</opt>
+                    <opt>Bitcoins</opt>
+                </opts>
+            </Payment_Method>
+        </cols>
+        <Facilities_Description> 
+            <desc>Detailed Facilities description.</desc>
+        </Facilities_Description>
+    </Facilities>
+    <Contact>
+        <Business_Hours_Weekday t="dropdown">
+            <desc>When the Cafe operates during the Weekday.</desc>.
+            <opts>
+                <opt>Opens Before 6AM
+                    <opt>Closes at 1PM</opt>
+                    <opt>Closes at 2PM</opt>
+                    <opt>Closes at 3PM</opt>
+                    <opt>Closes at 4PM</opt>
+                    <opt>Closes at 5PM</opt>
+                    <opt>Closes at 6PM</opt>
+                    <opt>Closes at 7PM</opt>
+                    <opt>Closes at 8PM</opt>
+                    <opt>Closes after 8PM</opt>
+                </opt>
+                    <opt>Opens at 6AM
+                    <opt>Closes at 1PM</opt>
+                    <opt>Closes at 2PM</opt>
+                    <opt>Closes at 3PM</opt>
+                    <opt>Closes at 4PM</opt>
+                    <opt>Closes at 5PM</opt>
+                    <opt>Closes at 6PM</opt>
+                    <opt>Closes at 7PM</opt>
+                    <opt>Closes at 8PM</opt>
+                    <opt>Closes after 8PM</opt>
+                </opt>
+                    <opt>Opens at 7AM
+                    <opt>Closes at 1PM</opt>
+                    <opt>Closes at 2PM</opt>
+                    <opt>Closes at 3PM</opt>
+                    <opt>Closes at 4PM</opt>
+                    <opt>Closes at 5PM</opt>
+                    <opt>Closes at 6PM</opt>
+                    <opt>Closes at 7PM</opt>
+                    <opt>Closes at 8PM</opt>
+                    <opt>Closes after 8PM</opt>
+                </opt>
+                    <opt>Opens at 8AM
+                    <opt>Closes at 1PM</opt>
+                    <opt>Closes at 2PM</opt>
+                    <opt>Closes at 3PM</opt>
+                    <opt>Closes at 4PM</opt>
+                    <opt>Closes at 5PM</opt>
+                    <opt>Closes at 6PM</opt>
+                    <opt>Closes at 7PM</opt>
+                    <opt>Closes at 8PM</opt>
+                    <opt>Closes after 8PM</opt>
+                </opt>
+                    <opt>Opens at 9AM
+                    <opt>Closes at 1PM</opt>
+                    <opt>Closes at 2PM</opt>
+                    <opt>Closes at 3PM</opt>
+                    <opt>Closes at 4PM</opt>
+                    <opt>Closes at 5PM</opt>
+                    <opt>Closes at 6PM</opt>
+                    <opt>Closes at 7PM</opt>
+                    <opt>Closes at 8PM</opt>
+                    <opt>Closes after 8PM</opt>
+                </opt>
+                    <opt>Opens at 10AM
+                    <opt>Closes at 1PM</opt>
+                    <opt>Closes at 2PM</opt>
+                    <opt>Closes at 3PM</opt>
+                    <opt>Closes at 4PM</opt>
+                    <opt>Closes at 5PM</opt>
+                    <opt>Closes at 6PM</opt>
+                    <opt>Closes at 7PM</opt>
+                    <opt>Closes at 8PM</opt>
+                    <opt>Closes after 8PM</opt>
+                </opt>
+                    <opt>Opens at 11AM
+                    <opt>Closes at 1PM</opt>
+                    <opt>Closes at 2PM</opt>
+                    <opt>Closes at 3PM</opt>
+                    <opt>Closes at 4PM</opt>
+                    <opt>Closes at 5PM</opt>
+                    <opt>Closes at 6PM</opt>
+                    <opt>Closes at 7PM</opt>
+                    <opt>Closes at 8PM</opt>
+                    <opt>Closes after 8PM</opt>
+                </opt>
+                    <opt>Opens at 12PM
+                    <opt>Closes at 1PM</opt>
+                    <opt>Closes at 2PM</opt>
+                    <opt>Closes at 3PM</opt>
+                    <opt>Closes at 4PM</opt>
+                    <opt>Closes at 5PM</opt>
+                    <opt>Closes at 6PM</opt>
+                    <opt>Closes at 7PM</opt>
+                    <opt>Closes at 8PM</opt>
+                    <opt>Closes after 8PM</opt>
+                </opt>
+                    <opt>Open 24 hours
+                    <opt>Never closes</opt>
+                </opt>
+                    <opt>Closed
+                    <opt>Does not open</opt>
+                </opt>
+            </opts>
+        </Business_Hours_Weekday>
+        <Business_Hours_Saturday t="dropdown">
+            <desc>When the Cafe operates on Saturdays.</desc>.
+            <opts>
+                <opt>Opens Before 6AM
+                    <opt>Closes at 1PM</opt>
+                    <opt>Closes at 2PM</opt>
+                    <opt>Closes at 3PM</opt>
+                    <opt>Closes at 4PM</opt>
+                    <opt>Closes at 5PM</opt>
+                    <opt>Closes at 6PM</opt>
+                    <opt>Closes at 7PM</opt>
+                    <opt>Closes at 8PM</opt>
+                    <opt>Closes after 8PM</opt>
+                </opt>
+                    <opt>Opens at 6AM
+                    <opt>Closes at 1PM</opt>
+                    <opt>Closes at 2PM</opt>
+                    <opt>Closes at 3PM</opt>
+                    <opt>Closes at 4PM</opt>
+                    <opt>Closes at 5PM</opt>
+                    <opt>Closes at 6PM</opt>
+                    <opt>Closes at 7PM</opt>
+                    <opt>Closes at 8PM</opt>
+                    <opt>Closes after 8PM</opt>
+                </opt>
+                    <opt>Opens at 7AM
+                    <opt>Closes at 1PM</opt>
+                    <opt>Closes at 2PM</opt>
+                    <opt>Closes at 3PM</opt>
+                    <opt>Closes at 4PM</opt>
+                    <opt>Closes at 5PM</opt>
+                    <opt>Closes at 6PM</opt>
+                    <opt>Closes at 7PM</opt>
+                    <opt>Closes at 8PM</opt>
+                    <opt>Closes after 8PM</opt>
+                </opt>
+                    <opt>Opens at 8AM
+                    <opt>Closes at 1PM</opt>
+                    <opt>Closes at 2PM</opt>
+                    <opt>Closes at 3PM</opt>
+                    <opt>Closes at 4PM</opt>
+                    <opt>Closes at 5PM</opt>
+                    <opt>Closes at 6PM</opt>
+                    <opt>Closes at 7PM</opt>
+                    <opt>Closes at 8PM</opt>
+                    <opt>Closes after 8PM</opt>
+                </opt>
+                    <opt>Opens at 9AM
+                    <opt>Closes at 1PM</opt>
+                    <opt>Closes at 2PM</opt>
+                    <opt>Closes at 3PM</opt>
+                    <opt>Closes at 4PM</opt>
+                    <opt>Closes at 5PM</opt>
+                    <opt>Closes at 6PM</opt>
+                    <opt>Closes at 7PM</opt>
+                    <opt>Closes at 8PM</opt>
+                    <opt>Closes after 8PM</opt>
+                </opt>
+                    <opt>Opens at 10AM
+                    <opt>Closes at 1PM</opt>
+                    <opt>Closes at 2PM</opt>
+                    <opt>Closes at 3PM</opt>
+                    <opt>Closes at 4PM</opt>
+                    <opt>Closes at 5PM</opt>
+                    <opt>Closes at 6PM</opt>
+                    <opt>Closes at 7PM</opt>
+                    <opt>Closes at 8PM</opt>
+                    <opt>Closes after 8PM</opt>
+                </opt>
+                    <opt>Opens at 11AM
+                    <opt>Closes at 1PM</opt>
+                    <opt>Closes at 2PM</opt>
+                    <opt>Closes at 3PM</opt>
+                    <opt>Closes at 4PM</opt>
+                    <opt>Closes at 5PM</opt>
+                    <opt>Closes at 6PM</opt>
+                    <opt>Closes at 7PM</opt>
+                    <opt>Closes at 8PM</opt>
+                    <opt>Closes after 8PM</opt>
+                </opt>
+                    <opt>Opens at 12PM
+                    <opt>Closes at 1PM</opt>
+                    <opt>Closes at 2PM</opt>
+                    <opt>Closes at 3PM</opt>
+                    <opt>Closes at 4PM</opt>
+                    <opt>Closes at 5PM</opt>
+                    <opt>Closes at 6PM</opt>
+                    <opt>Closes at 7PM</opt>
+                    <opt>Closes at 8PM</opt>
+                    <opt>Closes after 8PM</opt>
+                </opt>
+                    <opt>Open 24 hours
+                    <opt>Never closes</opt>
+                </opt>
+                    <opt>Closed
+                    <opt>Does not open</opt>
+                </opt>
+            </opts>
+        </Business_Hours_Saturday>
+        <Business_Hours_Sunday t="dropdown">
+            <desc>When the Cafe operates on Sundays.</desc>.
+            <opts>
+                <opt>Opens Before 6AM
+                    <opt>Closes at 1PM</opt>
+                    <opt>Closes at 2PM</opt>
+                    <opt>Closes at 3PM</opt>
+                    <opt>Closes at 4PM</opt>
+                    <opt>Closes at 5PM</opt>
+                    <opt>Closes at 6PM</opt>
+                    <opt>Closes at 7PM</opt>
+                    <opt>Closes at 8PM</opt>
+                    <opt>Closes after 8PM</opt>
+                </opt>
+                    <opt>Opens at 6AM
+                    <opt>Closes at 1PM</opt>
+                    <opt>Closes at 2PM</opt>
+                    <opt>Closes at 3PM</opt>
+                    <opt>Closes at 4PM</opt>
+                    <opt>Closes at 5PM</opt>
+                    <opt>Closes at 6PM</opt>
+                    <opt>Closes at 7PM</opt>
+                    <opt>Closes at 8PM</opt>
+                    <opt>Closes after 8PM</opt>
+                </opt>
+                    <opt>Opens at 7AM
+                    <opt>Closes at 1PM</opt>
+                    <opt>Closes at 2PM</opt>
+                    <opt>Closes at 3PM</opt>
+                    <opt>Closes at 4PM</opt>
+                    <opt>Closes at 5PM</opt>
+                    <opt>Closes at 6PM</opt>
+                    <opt>Closes at 7PM</opt>
+                    <opt>Closes at 8PM</opt>
+                    <opt>Closes after 8PM</opt>
+                </opt>
+                    <opt>Opens at 8AM
+                    <opt>Closes at 1PM</opt>
+                    <opt>Closes at 2PM</opt>
+                    <opt>Closes at 3PM</opt>
+                    <opt>Closes at 4PM</opt>
+                    <opt>Closes at 5PM</opt>
+                    <opt>Closes at 6PM</opt>
+                    <opt>Closes at 7PM</opt>
+                    <opt>Closes at 8PM</opt>
+                    <opt>Closes after 8PM</opt>
+                </opt>
+                    <opt>Opens at 9AM
+                    <opt>Closes at 1PM</opt>
+                    <opt>Closes at 2PM</opt>
+                    <opt>Closes at 3PM</opt>
+                    <opt>Closes at 4PM</opt>
+                    <opt>Closes at 5PM</opt>
+                    <opt>Closes at 6PM</opt>
+                    <opt>Closes at 7PM</opt>
+                    <opt>Closes at 8PM</opt>
+                    <opt>Closes after 8PM</opt>
+                </opt>
+                    <opt>Opens at 10AM
+                    <opt>Closes at 1PM</opt>
+                    <opt>Closes at 2PM</opt>
+                    <opt>Closes at 3PM</opt>
+                    <opt>Closes at 4PM</opt>
+                    <opt>Closes at 5PM</opt>
+                    <opt>Closes at 6PM</opt>
+                    <opt>Closes at 7PM</opt>
+                    <opt>Closes at 8PM</opt>
+                    <opt>Closes after 8PM</opt>
+                </opt>
+                    <opt>Opens at 11AM
+                    <opt>Closes at 1PM</opt>
+                    <opt>Closes at 2PM</opt>
+                    <opt>Closes at 3PM</opt>
+                    <opt>Closes at 4PM</opt>
+                    <opt>Closes at 5PM</opt>
+                    <opt>Closes at 6PM</opt>
+                    <opt>Closes at 7PM</opt>
+                    <opt>Closes at 8PM</opt>
+                    <opt>Closes after 8PM</opt>
+                </opt>
+                    <opt>Opens at 12PM
+                    <opt>Closes at 1PM</opt>
+                    <opt>Closes at 2PM</opt>
+                    <opt>Closes at 3PM</opt>
+                    <opt>Closes at 4PM</opt>
+                    <opt>Closes at 5PM</opt>
+                    <opt>Closes at 6PM</opt>
+                    <opt>Closes at 7PM</opt>
+                    <opt>Closes at 8PM</opt>
+                    <opt>Closes after 8PM</opt>
+                </opt>
+                    <opt>Open 24 hours
+                    <opt>Never closes</opt>
+                </opt>
+                    <opt>Closed
+                    <opt>Does not open</opt>
+                </opt>
+            </opts>
+        </Business_Hours_Sunday>
+           <Business_Hours_Public_Holidays t="dropdown">
+            <desc>When the Cafe operates on Public Holidays.</desc>.
+            <opts>
+                <opt>Opens Before 6AM
+                    <opt>Closes at 1PM</opt>
+                    <opt>Closes at 2PM</opt>
+                    <opt>Closes at 3PM</opt>
+                    <opt>Closes at 4PM</opt>
+                    <opt>Closes at 5PM</opt>
+                    <opt>Closes at 6PM</opt>
+                    <opt>Closes at 7PM</opt>
+                    <opt>Closes at 8PM</opt>
+                    <opt>Closes after 8PM</opt>
+                </opt>
+                    <opt>Opens at 6AM
+                    <opt>Closes at 1PM</opt>
+                    <opt>Closes at 2PM</opt>
+                    <opt>Closes at 3PM</opt>
+                    <opt>Closes at 4PM</opt>
+                    <opt>Closes at 5PM</opt>
+                    <opt>Closes at 6PM</opt>
+                    <opt>Closes at 7PM</opt>
+                    <opt>Closes at 8PM</opt>
+                    <opt>Closes after 8PM</opt>
+                </opt>
+                    <opt>Opens at 7AM
+                    <opt>Closes at 1PM</opt>
+                    <opt>Closes at 2PM</opt>
+                    <opt>Closes at 3PM</opt>
+                    <opt>Closes at 4PM</opt>
+                    <opt>Closes at 5PM</opt>
+                    <opt>Closes at 6PM</opt>
+                    <opt>Closes at 7PM</opt>
+                    <opt>Closes at 8PM</opt>
+                    <opt>Closes after 8PM</opt>
+                </opt>
+                    <opt>Opens at 8AM
+                    <opt>Closes at 1PM</opt>
+                    <opt>Closes at 2PM</opt>
+                    <opt>Closes at 3PM</opt>
+                    <opt>Closes at 4PM</opt>
+                    <opt>Closes at 5PM</opt>
+                    <opt>Closes at 6PM</opt>
+                    <opt>Closes at 7PM</opt>
+                    <opt>Closes at 8PM</opt>
+                    <opt>Closes after 8PM</opt>
+                </opt>
+                    <opt>Opens at 9AM
+                    <opt>Closes at 1PM</opt>
+                    <opt>Closes at 2PM</opt>
+                    <opt>Closes at 3PM</opt>
+                    <opt>Closes at 4PM</opt>
+                    <opt>Closes at 5PM</opt>
+                    <opt>Closes at 6PM</opt>
+                    <opt>Closes at 7PM</opt>
+                    <opt>Closes at 8PM</opt>
+                    <opt>Closes after 8PM</opt>
+                </opt>
+                    <opt>Opens at 10AM
+                    <opt>Closes at 1PM</opt>
+                    <opt>Closes at 2PM</opt>
+                    <opt>Closes at 3PM</opt>
+                    <opt>Closes at 4PM</opt>
+                    <opt>Closes at 5PM</opt>
+                    <opt>Closes at 6PM</opt>
+                    <opt>Closes at 7PM</opt>
+                    <opt>Closes at 8PM</opt>
+                    <opt>Closes after 8PM</opt>
+                </opt>
+                    <opt>Opens at 11AM
+                    <opt>Closes at 1PM</opt>
+                    <opt>Closes at 2PM</opt>
+                    <opt>Closes at 3PM</opt>
+                    <opt>Closes at 4PM</opt>
+                    <opt>Closes at 5PM</opt>
+                    <opt>Closes at 6PM</opt>
+                    <opt>Closes at 7PM</opt>
+                    <opt>Closes at 8PM</opt>
+                    <opt>Closes after 8PM</opt>
+                </opt>
+                    <opt>Opens at 12PM
+                    <opt>Closes at 1PM</opt>
+                    <opt>Closes at 2PM</opt>
+                    <opt>Closes at 3PM</opt>
+                    <opt>Closes at 4PM</opt>
+                    <opt>Closes at 5PM</opt>
+                    <opt>Closes at 6PM</opt>
+                    <opt>Closes at 7PM</opt>
+                    <opt>Closes at 8PM</opt>
+                    <opt>Closes after 8PM</opt>
+                </opt>
+                    <opt>Open 24 hours
+                    <opt>Never closes</opt>
+                </opt>
+                    <opt>Closed
+                    <opt>Does not open</opt>
+                </opt>
+            </opts>
+        </Business_Hours_Public_Holidays>
+        <cols>
+            <Web>
+                <desc>Cafe's website.</desc>
+            </Web>
+            <Email>
+                <desc>Cafe's email address.</desc>
+            </Email>
+        </cols>
+        <cols>
+            <Phone_Number b="decimal">
+                <desc>Cafe's phone number.</desc>
+            </Phone_Number>
+            <Twitter>
+                 <desc>Cafe's Twitter account.</desc>
+            </Twitter>
+        </cols>
+        <cols>
+            <Facebook>
+                <desc>Cafe's Facebook page.</desc>
+            </Facebook>
+            <Other_Contact>
+                <desc>Cafe's other contacts.</desc>
+            </Other_Contact>
+        </cols>
+    </Contact>
 </Cafe>
 
 <Review>
-	<Review_ID f="id notnull autonum">
-      <desc>Review's unique ID, autoincremented by 1</desc>
-    </Review_ID>
-    <timestamp/>
+    <Review>
+        <cols>
+            <Review_ID f="id notnull autonum">
+              <desc>Review's unique ID, autoincremented by 1</desc>
+              <str>
+                <fmt>Review no. $2: </fmt>
+                <pos>1</pos>
+              </str>
+            </Review_ID>
+            <Cafe_Name f="id notnull">
+                <str>
+                    <fmt>of $2 </fmt>
+                    <pos>2</pos>
+                </str>
+            </Cafe_Name>
+        </cols>
+        <cols>
+            <author f="id">
+                <str>
+                    <fmt>by $2 </fmt>
+                    <pos>3</pos>
+                </str>
+            </author>
+            <timestamp f="id">
+                 <str>
+                    <fmt>from $2</fmt>
+                    <pos>4</pos>
+                </str>
+            </timestamp>
+        </cols>
+        <cols>
+            <Type_of_Visit t="dropdown">
+                <desc>Choose the type of visit.</desc>
+                <opts>
+                    <opt>Business Meeting</opt>
+                    <opt>Family</opt>
+                    <opt>Friends</opt>
+                    <opt>Coffee Tasting</opt>
+                    <opt>I just wanted to have a coffee</opt>
+                    <opt>Other</opt>
+                </opts>
+            </Type_of_Visit>
+            <Coffee_Type t="dropdown">
+                Ordered Type of Coffee
+                <desc>Choose the type of coffee you have ordered.</desc>.
+                <opts>
+                    <opt>Aeropress</opt>
+                    <opt>Cold Brew</opt>
+                    <opt>Drip</opt>
+                    <opt>Espresso
+                        <opt>Americano</opt>
+                        <opt>Cappuccino</opt>
+                        <opt>Espresso</opt>
+                        <opt>Flat White</opt>
+                        <opt>Frappe</opt>
+                        <opt>Latte</opt>
+                        <opt>Latte Macchiato</opt>
+                        <opt>Long Black</opt>
+                        <opt>Mocha</opt>
+                    </opt>
+                    <opt>French Press</opt>
+                    <opt>Moka Pot</opt>
+                    <opt>Vacuum Pot</opt>
+                    <opt>Turkish Coffee</opt>
+                    <opt>Other</opt>
+                </opts>
+            </Coffee_Type>
+        </cols>
+        <Milk_Quality t="radio">
+            <desc>Quality of milk used (if applicable).</desc>.
+            <opts>
+                <opt>Very Good</opt>
+                <opt>OK</opt>
+                <opt>Bad</opt>
+                <opt>Not Applicable</opt>
+            </opts>
+        </Milk_Quality>
+        <Coffee_Taken t="checkbox">
+            <desc>How did you take the coffee?</desc>.
+            <opts>
+                <opt>With Full Cream Milk</opt>
+                <opt>With Soy Milk</opt>
+                <opt>With Skim Milk</opt>
+                <opt>Double Shot</opt>
+                <opt>Triple Shot</opt>
+                <opt>Syrup</opt>
+                <opt>Sugar</opt>
+                <opt>Alcohol</opt>
+                <opt>On Ice</opt>
+                <opt>Coffee Cocktail</opt>
+                <opt>Other</opt>
+            </opts>
+        </Coffee_Taken>
+        <Coffee_Overall_Rating t="radio">
+            Coffee Overall rating (1 - undrinkable; 5 - the best coffee of my life)
+            <desc>Rate the overall experience of ordered coffee: 1 - undrinkable; 10 - the best coffee of my life.</desc>.
+            <opts>
+                <opt>1</opt>
+                <opt>2</opt>
+                <opt>3</opt>
+                <opt>4</opt>
+                <opt>5</opt>
+            </opts>
+        </Coffee_Overall_Rating>
+        <Coffee_Comments>
+            <desc>Comment on the coffee.</desc>.
+        </Coffee_Comments>
+        <Order_other_than_Coffee> 
+            <desc>Describe what have you ordered and make relevant comments.</desc>.
+        </Order_other_than_Coffee>
+        <Service_Rating t="radio">
+            Service Rating (1 - terrible; 5 - great service)
+            <desc>Rate the Cafe's service. How satisfied were you with the staff? 1 - they should fire that person, 10 - I really want to tip the person!</desc>.
+            <opts>
+                <opt>1</opt>
+                <opt>2</opt>
+                <opt>3</opt>
+                <opt>4</opt>
+                <opt>5</opt>
+            </opts>
+        </Service_Rating>
+        <Service_Comments>
+            <desc>Any comments to the service you may have - was the staff helpful, or they wanted to get over with their shift and did not care about you?</desc>.
+        </Service_Comments>
+        <Atmosphere t="radio">
+            Atmosphere (1 - nonexistant; 5 - great)
+            <desc>How was the overall athmosphere of the Cafe: 1 - I felt very uncomfortable and I am likely not coming back; 5 - I felt very comfartable and I really want to return back.</desc>.
+            <opts>
+                <opt>1</opt>
+                <opt>2</opt>
+                <opt>3</opt>
+                <opt>4</opt>
+                <opt>5</opt>
+            </opts>
+        </Atmosphere>
+        <Cleaniness t="radio">
+            Cleaniness (1 - messy; 5 - very clean)
+            <desc>How clean the Cafe was? 1 - messy, 5 - very clean.</desc>.
+            <opts>
+                <opt>1</opt>
+                <opt>2</opt>
+                <opt>3</opt>
+                <opt>4</opt>
+                <opt>5</opt>
+            </opts>
+        </Cleaniness>
+        <Review_Notes>
+            <desc>Write your review as if you are describing the place to your friend.</desc>.
+        </Review_Notes>
+        <Revisit_Recommendations t="radio">
+            Would you like to come back?
+            <desc>Would you like to come back?</desc>.
+            <opts>
+                <opt>Yes</opt>
+                <opt>No</opt>
+                <opt>Maybe</opt>
+                <opt>Not Applicable</opt>
+            </opts>
+        </Revisit_Recommendations>
+        <Add_Representative_Review_Photo t="camera"/>
+    </Review>
 </Review>
 
 </module>
