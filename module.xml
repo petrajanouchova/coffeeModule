@@ -36,7 +36,7 @@
                     <pos>1</pos>
                 </str>
             </Cafe_ID>
-            <Cafe_Name f="id notnull">
+            <Cafe_Name f="id notnull" t="input">
                 <desc>Enter Cafe's name.</desc>
                 <str>
                     <fmt>$2 </fmt>
@@ -45,14 +45,14 @@
             </Cafe_Name>
         </cols>
         <cols>
-            <Street f="id notnull">
+            <Street f="id notnull" t="input">
                 <desc>Enter Street name and the number, e.g. 293 Clarence Street.</desc>
                 <str>
                     <fmt>at $2, </fmt>
                     <pos>3</pos>
               </str>
             </Street>
-            <Suburb f="id">
+            <Suburb f="id" t="input">
                  <desc>Enter Suburb name, if known.</desc>
                  <str>
                     <fmt>$2, </fmt>
@@ -61,22 +61,24 @@
             </Suburb>
         </cols>
         <cols>
-            <City f="id">
+            <City f="id" t="input">
                 <desc>Enter name of the City.</desc>
                 <str>
                     <fmt>$2 </fmt>
                     <pos>5</pos>
               </str>
             </City>
-            <State>
+            <State t="input">
                 <desc>Enter name of the State.</desc>
             </State>
-            <Postal_Code b="decimal">
-                <desc>Enter Postal Code, if known.</desc>
-            </Postal_Code>
         </cols>
+        <Postal_Code b="decimal">
+            <desc>Enter Postal Code, if known.</desc>
+        </Postal_Code>
         <gps/>
-        <Take_Representative_Photo_of_the_Cafe t="camera"/>
+        <Take_Representative_Photo_of_the_Cafe t="camera">
+            <desc>Take Picture</desc>
+        </Take_Representative_Photo_of_the_Cafe>
     </Location>
     <Customer_Review>
         <Add_Review t="button" lc="Review"/>
@@ -136,7 +138,7 @@
         </cols>
         <cols>
             <Food_Availability t="checkbox">
-                <desc> Check all applicable options. Use Annotation if neccessary. </desc>
+                <desc> Check all applicable options. Use Annotation if neccessary.</desc>
                 <opts>
                     <opt>Desserts</opt>
                     <opt>Sandwiches</opt>
@@ -202,7 +204,7 @@
         </Facilities_Description>
     </Facilities>
     <Contact>
-    	<Open_Weekday b="time">
+        <Open_Weekday b="time">
                 <desc>When the Cafe opens during the Weekday</desc>
         </Open_Weekday>
         <Close_Weekday b="time">
@@ -278,7 +280,6 @@
                 </str>
             </timestamp>
         </cols>
-        <cols>
             <Type_of_Visit t="dropdown">
                 <desc>Choose the type of visit.</desc>
                 <opts>
@@ -290,14 +291,15 @@
                     <opt>Other</opt>
                 </opts>
             </Type_of_Visit>
+        <cols>    
             <Coffee_Type t="checkbox">
                 Ordered Type of Coffee
-                <desc>Choose the type of coffee you have ordered.</desc>.
+                <desc>Choose the type of coffee you have ordered.</desc>
                 <opts>
                     <opt>Aeropress</opt>
                     <opt>Cold Brew</opt>
                     <opt>Drip</opt>
-                    <opt>Espresso based
+                    <opt>Espresso based</opt>
                     <opt>French Press</opt>
                     <opt>Moka Pot</opt>
                     <opt>Vacuum Pot</opt>
@@ -305,9 +307,9 @@
                     <opt>Other</opt>
                 </opts>
             </Coffee_Type>
-            <Coffee_Espresso t="checkbox">
-            		Ordered Type of Espresso based Coffee
-                <desc>Choose the type of coffee you have ordered.</desc>.
+            <Coffee_Expresso t="checkbox">
+            Ordered Type of Espresso based Coffee
+                <desc>Choose the type of coffee you have ordered.</desc>
                 <opts>
                     <opt>Americano</opt>
                     <opt>Cappuccino</opt>
@@ -320,10 +322,10 @@
                     <opt>Mocha</opt>
                     <opt>Other</opt>
                 </opts>
-            </Coffee_Espresso>
+            </Coffee_Expresso>
         </cols>
         <Milk_Quality t="radio">
-            <desc>Quality of milk used (if applicable).</desc>.
+            <desc>Quality of milk used (if applicable).</desc>
             <opts>
                 <opt>Very Good</opt>
                 <opt>OK</opt>
@@ -332,7 +334,7 @@
             </opts>
         </Milk_Quality>
         <Coffee_Taken t="checkbox">
-            <desc>How did you take the coffee?</desc>.
+            <desc>How did you take the coffee?</desc>
             <opts>
                 <opt>With Full Cream Milk</opt>
                 <opt>With Soy Milk</opt>
@@ -349,7 +351,7 @@
         </Coffee_Taken>
         <Coffee_Overall_Rating t="radio">
             Coffee Overall rating (1 - undrinkable; 5 - the best coffee of my life)
-            <desc>Rate the overall experience of ordered coffee: 1 - undrinkable; 10 - the best coffee of my life.</desc>.
+            <desc>Rate the overall experience of ordered coffee: 1 - undrinkable; 10 - the best coffee of my life.</desc>
             <opts>
                 <opt>1</opt>
                 <opt>2</opt>
@@ -358,15 +360,15 @@
                 <opt>5</opt>
             </opts>
         </Coffee_Overall_Rating>
-        <Coffee_Comments>
-            <desc>Comment on the coffee.</desc>.
+        <Coffee_Comments t="input">
+            <desc>Comment on the coffee.</desc>
         </Coffee_Comments>
-        <Order_other_than_Coffee> 
-            <desc>Describe what have you ordered and make relevant comments.</desc>.
+        <Order_other_than_Coffee t="input"> 
+            <desc>Describe what have you ordered and make relevant comments.</desc>
         </Order_other_than_Coffee>
         <Service_Rating t="radio">
             Service Rating (1 - terrible; 5 - great service)
-            <desc>Rate the Cafe's service. How satisfied were you with the staff? 1 - they should fire that person, 10 - I really want to tip the person!</desc>.
+            <desc>Rate the Cafe's service. How satisfied were you with the staff? 1 - they should fire that person, 10 - I really want to tip the person!</desc>
             <opts>
                 <opt>1</opt>
                 <opt>2</opt>
@@ -375,12 +377,12 @@
                 <opt>5</opt>
             </opts>
         </Service_Rating>
-        <Service_Comments>
-            <desc>Any comments to the service you may have - was the staff helpful, or they wanted to get over with their shift and did not care about you?</desc>.
+        <Service_Comments t="input">
+            <desc>Any comments to the service you may have - was the staff helpful, or they wanted to get over with their shift and did not care about you?</desc>
         </Service_Comments>
         <Atmosphere t="radio">
             Atmosphere (1 - nonexistant; 5 - great)
-            <desc>How was the overall athmosphere of the Cafe: 1 - I felt very uncomfortable and I am likely not coming back; 5 - I felt very comfartable and I really want to return back.</desc>.
+            <desc>How was the overall athmosphere of the Cafe: 1 - I felt very uncomfortable and I am likely not coming back; 5 - I felt very comfartable and I really want to return back.</desc>
             <opts>
                 <opt>1</opt>
                 <opt>2</opt>
@@ -391,7 +393,7 @@
         </Atmosphere>
         <Cleaniness t="radio">
             Cleaniness (1 - messy; 5 - very clean)
-            <desc>How clean the Cafe was? 1 - messy, 5 - very clean.</desc>.
+            <desc>How clean the Cafe was? 1 - messy, 5 - very clean.</desc>
             <opts>
                 <opt>1</opt>
                 <opt>2</opt>
@@ -400,12 +402,11 @@
                 <opt>5</opt>
             </opts>
         </Cleaniness>
-        <Review_Notes>
-            <desc>Write your review as if you are describing the place to your friend.</desc>.
+        <Review_Notes t="input">
+            <desc>Write your review as if you are describing the place to your friend.</desc>
         </Review_Notes>
         <Revisit_Recommendations t="radio">
-            Would you like to come back?
-            <desc>Would you like to come back?</desc>.
+            <desc>Would you like to come back?</desc>
             <opts>
                 <opt>Yes</opt>
                 <opt>No</opt>
@@ -413,7 +414,12 @@
                 <opt>Not Applicable</opt>
             </opts>
         </Revisit_Recommendations>
-        <Add_Representative_Review_Photo t="camera"/>
+        <Add_Representative_Review_Photo t="camera">
+            <desc>Take Picture</desc>
+        </Add_Representative_Review_Photo>
+        <Add_Photo_from_Device t="file">
+            <desc>Choose Photo from Device</desc>
+        </Add_Photo_from_Device>  
     </Review>
 </Review>
 
