@@ -200,26 +200,33 @@
             </Payment_Method>
         </cols>
         <Facilities_Description> 
+            Detailed Description of Facilities
             <desc>Detailed Facilities description.</desc>
         </Facilities_Description>
     </Facilities>
     <Contact>
         <Open_Weekday b="time">
+            Opens on Weekdays
                 <desc>When the Cafe opens during the Weekday</desc>
         </Open_Weekday>
         <Close_Weekday b="time">
+            Closes on Weekdays
                 <desc>When the Cafe closes during the Weekday</desc>
         </Close_Weekday>
         <Open_Saturday b="time">
+            Opens on Saturdays
                 <desc>When the Cafe opens on Saturday</desc>
         </Open_Saturday>
         <Close_Saturday b="time">
+            Closes on Saturdays
                 <desc>When the Cafe closes on Saturday</desc>
         </Close_Saturday>
         <Open_Sunday b="time">
+            Opens on Sundays
                 <desc>When the Cafe opens on Sunday</desc>
         </Open_Sunday>
         <Close_Sunday b="time">
+            Closes on Sundays
                 <desc>When the Cafe closes on Sunday</desc>
         </Close_Sunday>
         <cols>
@@ -243,6 +250,7 @@
                 <desc>Cafe's Facebook page.</desc>
             </Facebook>
             <Other_Contact>
+                Contact for Booking 
                 <desc>Cafe's other contacts.</desc>
             </Other_Contact>
         </cols>
@@ -259,12 +267,12 @@
                 <pos>1</pos>
               </str>
             </Review_ID>
-            <Cafe_Name f="id notnull">
+            <Cafe_Name_Review f="id notnull">
                 <str>
                     <fmt>of $2 </fmt>
                     <pos>2</pos>
                 </str>
-            </Cafe_Name>
+            </Cafe_Name_Review>
         </cols>
         <cols>
             <author f="id">
@@ -364,6 +372,7 @@
             <desc>Comment on the coffee.</desc>
         </Coffee_Comments>
         <Order_other_than_Coffee t="input"> 
+            Describe any order other than coffee
             <desc>Describe what have you ordered and make relevant comments.</desc>
         </Order_other_than_Coffee>
         <Service_Rating t="radio">
@@ -378,6 +387,7 @@
             </opts>
         </Service_Rating>
         <Service_Comments t="input">
+            Comments on the quality of service
             <desc>Any comments to the service you may have - was the staff helpful, or they wanted to get over with their shift and did not care about you?</desc>
         </Service_Comments>
         <Atmosphere t="radio">
@@ -406,6 +416,7 @@
             <desc>Write your review as if you are describing the place to your friend.</desc>
         </Review_Notes>
         <Revisit_Recommendations t="radio">
+            Would you like to come back?
             <desc>Would you like to come back?</desc>
             <opts>
                 <opt>Yes</opt>
@@ -414,12 +425,12 @@
                 <opt>Not Applicable</opt>
             </opts>
         </Revisit_Recommendations>
-        <Add_Representative_Review_Photo t="camera">
-            <desc>Take Picture</desc>
-        </Add_Representative_Review_Photo>
-        <Add_Photo_from_Device t="file">
-            <desc>Choose Photo from Device</desc>
-        </Add_Photo_from_Device>  
+        <Take_Representative_Review_Photo t="camera">
+            <desc>Take Picture using the FAIMS app</desc>
+        </Take_Representative_Review_Photo>
+        <Choose_Photo_from_Device t="file">
+            <desc>Choose Photo from Device, using external apps. First you have to navigate to the folder where the file you want to attach lives and then attach it.</desc>
+        </Choose_Photo_from_Device>  
     </Review>
 </Review>
 
